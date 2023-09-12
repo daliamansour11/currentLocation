@@ -55,7 +55,7 @@ class LoginScreen extends StatelessWidget{
             child: Column(
                 children: [
                   Expanded(
-                      flex: 1,
+                      flex: 2,
                       child: Padding(
                         padding: const EdgeInsets.only(top: 38.0),
                         child: SizedBox(
@@ -86,207 +86,203 @@ class LoginScreen extends StatelessWidget{
                     height: 4,
                   ),
                   Expanded(
-                      flex: 4,
-                      child: Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFDDE3E5),
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(35),
-                            topLeft: Radius.circular(35),
-                          ),),
+                      flex: 6,
+                      child: SingleChildScrollView(
 
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(35),
-                              topLeft: Radius.circular(35),
-                            ),
-                          ),
-                          child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Form(
-                                  key: _formKey,
-                                  child: Column(
-                                      mainAxisAlignment: MainAxisAlignment
-                                          .center,
-                                      children: <Widget>[
+                          child:  Container(
+                            height: MediaQuery.of(context).size.height,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(35),
+                                  topLeft: Radius.circular(35),
+                                ),
+                              ),
+                              child: Column(
 
+                                children: [
+                                  SizedBox(height: 25,),
 
-                                        Container(
+                                   Center(child: Text("Login",style: TextStyle(color: AppColors.secondaryColor,fontSize: 26,fontWeight: FontWeight.bold),)),SizedBox(height: 10,),
+                                  Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Form(
+                                          key: _formKey,
+                                          child: Column(
+                                              mainAxisAlignment: MainAxisAlignment
+                                                  .center,
+                                              children: <Widget>[
+                                                Container(
+                                                    alignment: Alignment.center,
+                                                    margin: EdgeInsets.symmetric(
+                                                        horizontal: 20),
+                                                    child: TextFormField(
 
+                                                      controller: userEmailController,
+                                                      obscureText: false,
+                                                      validator: (value) {
+                                                        if (value!.isEmpty ||
+                                                            value == null) {
+                                                          return "please your name is required";
+                                                        }
+                                                        // else if (!value.contains("@") ||
+                                                        //     !value.contains(".")) {
+                                                        //   return " please enter valide email";
+                                                        // }
+                                                        return null;
+                                                      },
+                                                      onChanged: (value) {
 
-                                            alignment: Alignment.center,
-                                            margin: EdgeInsets.symmetric(
-                                                horizontal: 20),
-                                            child: TextFormField(
+                                                      },
+                                                      keyboardType: TextInputType
+                                                          .name,
+                                                      decoration: InputDecoration(
 
-                                              controller: userEmailController,
-                                              obscureText: false,
-                                              validator: (value) {
-                                                if (value!.isEmpty ||
-                                                    value == null) {
-                                                  return "please your name is required";
-                                                }
-                                                // else if (!value.contains("@") ||
-                                                //     !value.contains(".")) {
-                                                //   return " please enter valide email";
-                                                // }
-                                                return null;
-                                              },
-                                              onChanged: (value) {
+                                                        border: OutlineInputBorder(
+                                                          borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(20)
+                                                          ),),
+                                                        enabledBorder: OutlineInputBorder(
+                                                          borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 1,
 
-                                              },
-                                              keyboardType: TextInputType
-                                                  .name,
-                                              decoration: InputDecoration(
+                                                          ),
 
-                                                border: OutlineInputBorder(
-                                                  borderRadius:
-                                                  BorderRadius.all(
-                                                      Radius.circular(20)
-                                                  ),),
-                                                enabledBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Colors.grey,
-                                                    width: 1,
+                                                          borderRadius: BorderRadius
+                                                              .all(Radius.circular(20)
+                                                          ),
 
-                                                  ),
+                                                        ),
+                                                        focusedBorder: OutlineInputBorder(
+                                                          borderSide: BorderSide(
+                                                            color: Colors.blue,
+                                                            width: 2,
 
-                                                  borderRadius: BorderRadius
-                                                      .all(Radius.circular(20)
-                                                  ),
+                                                          ),
+                                                          borderRadius: BorderRadius
+                                                              .all(Radius.circular(20)
 
-                                                ),
-                                                focusedBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Colors.blue,
-                                                    width: 2,
-
-                                                  ),
-                                                  borderRadius: BorderRadius
-                                                      .all(Radius.circular(20)
-
-                                                  ),
-                                                ),
-                                                labelText: "UserName", //babel text
-                                                hintText: "Enter your name",
+                                                          ),
+                                                        ),
+                                                        labelText: "UserName", //babel text
+                                                        hintText: "Enter your name",
 
 
-                                                contentPadding: EdgeInsets
-                                                    .symmetric(
-                                                    vertical: 1, horizontal: 5),
-                                                //hint text
-                                                prefixIcon: Icon(Icons.person),
-                                                //prefix iocn
-                                                hintStyle: TextStyle(
-                                                    fontSize: 18,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black45),
-                                                //hint text style
-                                                labelStyle: TextStyle(
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w500,
-                                                    color:
-                                                        AppColors.secondaryColor), //label style
+                                                        contentPadding: EdgeInsets
+                                                            .symmetric(
+                                                            vertical: 1, horizontal: 5),
+                                                        //hint text
+                                                        prefixIcon: Icon(Icons.person),
+                                                        //prefix iocn
+                                                        hintStyle: TextStyle(
+                                                            fontSize: 18,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.black45),
+                                                        //hint text style
+                                                        labelStyle: TextStyle(
+                                                            fontSize: 15,
+                                                            fontWeight: FontWeight.w500,
+                                                            color:
+                                                                AppColors.secondaryColor), //label style
 
-                                              ),
+                                                      ),
 
-                                            )
-
-                                        ),
-                                        SizedBox(height: size.height * 0.03,),
-
-                                        Container(
-
-                                          // decoration: BoxDecoration(color: Colors.white,
-                                          // borderRadius: BorderRadius.all(Radius.circular(10)),
-                                          // ),
-
-                                            alignment: Alignment.center,
-                                            margin: EdgeInsets.symmetric(
-                                                horizontal: 20),
-                                            child: TextFormField(
-                                              controller: passwordController,
-                                              obscureText: isvisible,
-                                              validator: (value) {
-                                                if (value == null ||
-                                                    value.isEmpty) {
-                                                  return "please password is required";
-                                                }
-                                                else if (value.length < 8) {
-                                                  return "password should be 8 character or more characters";
-                                                }
-                                                return null;
-                                              },
-                                              onChanged: (value) {
-
-                                              },
-                                              keyboardType: TextInputType
-                                                  .visiblePassword,
-
-                                              decoration: InputDecoration(
-                                                suffixIcon: IconButton(
-                                                  icon: Icon(isvisible
-                                                      ? Icons.visibility_off :
-                                                  Icons.visibility),
-                                                  onPressed: _toggle,
-                                                ),
-                                                border: OutlineInputBorder(
-                                                    borderRadius: BorderRadius
-                                                        .all(
-                                                        Radius.circular(20))),
-                                                enabledBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Colors.grey,
-                                                    width: 1,
-
-                                                  ),
-
-                                                  borderRadius: BorderRadius
-                                                      .all(Radius.circular(20)
-                                                  ),
+                                                    )
 
                                                 ),
-                                                focusedBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Colors.blue,
-                                                    width: 2,
+                                                SizedBox(height: size.height * 0.03,),
 
-                                                  ),
-                                                  borderRadius: BorderRadius
-                                                      .all(Radius.circular(20)
+                                                Container(
 
-                                                  ),
+                                                  // decoration: BoxDecoration(color: Colors.white,
+                                                  // borderRadius: BorderRadius.all(Radius.circular(10)),
+                                                  // ),
+
+                                                    alignment: Alignment.center,
+                                                    margin: EdgeInsets.symmetric(
+                                                        horizontal: 20),
+                                                    child: TextFormField(
+                                                      controller: passwordController,
+                                                      obscureText: isvisible,
+                                                      validator: (value) {
+                                                        if (value == null ||
+                                                            value.isEmpty) {
+                                                          return "please password is required";
+                                                        }
+                                                        else if (value.length < 8) {
+                                                          return "password should be 8 character or more characters";
+                                                        }
+                                                        return null;
+                                                      },
+                                                      onChanged: (value) {
+
+                                                      },
+                                                      keyboardType: TextInputType
+                                                          .visiblePassword,
+
+                                                      decoration: InputDecoration(
+                                                        suffixIcon: IconButton(
+                                                          icon: Icon(isvisible
+                                                              ? Icons.visibility_off :
+                                                          Icons.visibility),
+                                                          onPressed: _toggle,
+                                                        ),
+                                                        border: OutlineInputBorder(
+                                                            borderRadius: BorderRadius
+                                                                .all(
+                                                                Radius.circular(20))),
+                                                        enabledBorder: OutlineInputBorder(
+                                                          borderSide: BorderSide(
+                                                            color: Colors.grey,
+                                                            width: 1,
+
+                                                          ),
+
+                                                          borderRadius: BorderRadius
+                                                              .all(Radius.circular(20)
+                                                          ),
+
+                                                        ),
+                                                        focusedBorder: OutlineInputBorder(
+                                                          borderSide: BorderSide(
+                                                            color: Colors.blue,
+                                                            width: 2,
+
+                                                          ),
+                                                          borderRadius: BorderRadius
+                                                              .all(Radius.circular(20)
+
+                                                          ),
+                                                        ),
+                                                      labelText: "password", //babel text
+                                                        hintText: "Enter your password",
+                                                        contentPadding: EdgeInsets
+                                                            .symmetric(vertical: 1,
+                                                            horizontal: 10),
+
+                                                        //hint text
+                                                        prefixIcon: Icon(
+                                                            Icons.password),
+                                                        //prefix iocn
+                                                        hintStyle: TextStyle(
+                                                            fontSize: 18,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.black45),
+                                                        //hint text style
+                                                        labelStyle: TextStyle(
+                                                            fontSize: 15,
+                                                            fontWeight: FontWeight.w500,
+                                                            color: AppColors.secondaryColor), //label style
+
+                                                      ),
+
+                                                    )
+
+
                                                 ),
-                                              labelText: "password", //babel text
-                                                hintText: "Enter your password",
-                                                contentPadding: EdgeInsets
-                                                    .symmetric(vertical: 1,
-                                                    horizontal: 10),
-
-                                                //hint text
-                                                prefixIcon: Icon(
-                                                    Icons.password),
-                                                //prefix iocn
-                                                hintStyle: TextStyle(
-                                                    fontSize: 18,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black45),
-                                                //hint text style
-                                                labelStyle: TextStyle(
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: AppColors.secondaryColor), //label style
-
-                                              ),
-
-                                            )
-
-
-                                        ),
-                                        SizedBox(height: size.height * 0.03,),
+                                                SizedBox(height: size.height * 0.03,),
     Container(
     alignment: Alignment.centerRight,
     margin: EdgeInsets.symmetric(horizontal: 20),
@@ -307,86 +303,90 @@ class LoginScreen extends StatelessWidget{
     SizedBox(width: size.width * 0.07,),
 
     Container(
-                                          width: 200,
-                                          height: 70,
-                                          alignment: Alignment.center,
-                                          margin: EdgeInsets.only(left: 10,
-                                              right: 30,
-                                              top: 10,
-                                              bottom: 0),
-                                          child: ElevatedButton(
+                                                  width: 200,
+                                                  height: 70,
+                                                  alignment: Alignment.center,
+                                                  margin: EdgeInsets.only(left: 10,
+                                                      right: 30,
+                                                      top: 10,
+                                                      bottom: 0),
+                                                  child: ElevatedButton(
 
-                                            style: ElevatedButton.styleFrom(
-                                              backgroundColor: Color(
-                                                  0xFF005373),
-                                              elevation: 5,
-                                              padding: EdgeInsets.all(20.0),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius
-                                                    .circular(25.0),
+                                                    style: ElevatedButton.styleFrom(
+                                                      backgroundColor: Color(
+                                                          0xFF005373),
+                                                      elevation: 5,
+                                                      padding: EdgeInsets.all(20.0),
+                                                      shape: RoundedRectangleBorder(
+                                                        borderRadius: BorderRadius
+                                                            .circular(25.0),
 
-                                              ),
+                                                      ),
 
-                                            ),
-                                            onPressed: () async {
-                                              if (userEmailController.text
-                                                  .isEmpty ||
-                                                  userEmailController.text ==
-                                                      null &&
-                                                      passwordController.text
+                                                    ),
+                                                    onPressed: () async {
+                                                      if (userEmailController.text
                                                           .isEmpty ||
-                                                  passwordController.text ==
-                                                      null) {
-                                                _submit();
-                                              }
-                                              else{
-                                              Get.to(HomeScreen(userName: userEmailController.text));
-                                            }},
-                                            child: Text(
-                                                "LogIn",
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 18)
+                                                          userEmailController.text ==
+                                                              null &&
+                                                              passwordController.text
+                                                                  .isEmpty ||
+                                                          passwordController.text ==
+                                                              null) {
+                                                        _submit();
+                                                      }
+                                                      else{
+                                                      Get.to(HomeScreen(userName: userEmailController.text));
+                                                    }},
+                                                    child: Text(
+                                                        "LogIn",
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: 18)
 
-                                          ),
-                                        ),
+                                                  ),
+                                                ),
+                                      ),
+
+
+                                      SizedBox(height: size.height * 0.04,),
+
+                                      Container(
+
+                                          alignment: Alignment.centerRight,
+                                          margin: EdgeInsets.only(left: 70, right: 10, top: 0, bottom: 2),
+                                          child: GestureDetector(
+                                            onTap: () {
+
+                                            },
+                                            child: Text(""
+                                                "Don't Have an account? Sign Up",
+                                              style: TextStyle(fontSize: 14,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black45),),
+                                          )
+                                      ),
+
+
+
+
+
+                                                SizedBox(height: size.height * 0.04,),
+
+
+                                              ])
+                                      )
+
+
+                                  ),
+                                ],
                               ),
-
-
-                              SizedBox(height: size.height * 0.04,),
-
-                              Container(
-
-                                  alignment: Alignment.centerRight,
-                                  margin: EdgeInsets.only(left: 70, right: 10, top: 0, bottom: 2),
-                                  child: GestureDetector(
-                                    onTap: () {
-
-                                    },
-                                    child: Text(""
-                                        "Don't Have an account? Sign Up",
-                                      style: TextStyle(fontSize: 14,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black45),),
-                                  )
-                              ),
-
-
-
-
-
-                                        SizedBox(height: size.height * 0.04,),
-
-
-                                      ])
-                              )
-
-
+                            ),
                           ),
-                        ),
-                      )
+                      ),
 
-                  )
+
+
                 ]
             )
         )

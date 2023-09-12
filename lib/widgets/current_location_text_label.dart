@@ -9,7 +9,7 @@ class CurrentLocationTextLabel extends StatelessWidget {
   const CurrentLocationTextLabel({
     Key? key,
     required this.labelText,
-    this.labelSize = 16,
+    this.labelSize = 20,
     this.labelWeight = FontWeight.w600,
     this.labelAlign,
     this.labelColor = AppColors.secondaryColor,
@@ -58,7 +58,7 @@ class CurrentLocationTextLabel extends StatelessWidget {
           style: labelStyle ??
               TextStyle(
                 fontSize: labelSize,
-                color: labelColor.withOpacity(opacity??1),
+                color: Colors.white.withOpacity(opacity??1),
                 decoration: textDecoration,
                // fontFamily: AppFonts.POPPINS,
                 fontWeight: labelWeight,

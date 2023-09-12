@@ -6,7 +6,9 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../utilities/themes/app_colors.dart';
 import '../../../../widgets/current_location_elevated_button.dart';
+import '../../../../widgets/current_location_text_label.dart';
 
 //
 class HomeScreen extends StatelessWidget {
@@ -18,8 +20,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF005373),
-        title: Text("Home"),
+        backgroundColor: AppColors.secondaryColor,
+        title: CurrentLocationTextLabel(labelText: 'Home',),
 
         centerTitle: true,
 
